@@ -1,6 +1,7 @@
 package datnguyen.com.newsapp;
 
 import android.os.Bundle;
+import android.support.v4.app.LoaderManager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
@@ -81,9 +82,9 @@ public class MainActivity extends AppCompatActivity {
 			public boolean onQueryTextSubmit(String s) {
 				// clear current search result for a fresh search
 				newsList.clear();
-//				totalItems = 0;
-//				currentKeyword = "";
-//				currentPage = DEFAULT_CURRENT_PAGE;
+				totalItems = 0;
+				currentKeyword = "";
+				currentPage = DEFAULT_CURRENT_PAGE;
 
 				newsAdapter.notifyDataSetChanged();
 
@@ -115,7 +116,6 @@ public class MainActivity extends AppCompatActivity {
 
 		// setup delegate listener
 		newsServiceListener = new NewsServiceListener() {
-
 			@Override
 			public void onNewsReceived(ArrayList<News> list, int totalCount, int page) {
 				// add to list and show in recyclerview
@@ -134,7 +134,7 @@ public class MainActivity extends AppCompatActivity {
 			}
 		};
 
-		NewsService.getNewsService().setServiceListener(newsServiceListener);
+		NewsService.getNewsService(this).setServiceListener(newsServiceListener);
 	}
 
 	private void handleSearchCompleted() {
@@ -160,6 +160,7 @@ public class MainActivity extends AppCompatActivity {
 					newsAdapter.setFooterEnabled(false);
 				}
 
+				tvErrorMessage.setText("");
 				newsAdapter.loadmoreCompleted();
 
 				//notify changes
@@ -173,20 +174,21 @@ public class MainActivity extends AppCompatActivity {
 
 	/**
 	 * Start searching by sending search query to BookService, and update UI when get result
-	 *
 	 * @param keyword: keyword to search
 	 */
 	private void startSearch(String keyword) {
 		keyword = keyword.trim();
 		currentKeyword = keyword;
 
+		currentPage += 1;
 		// send keyword search to Service
 		// build param search
-		HashMap params = NewsService.getNewsService().baseParams();
+		HashMap params = NewsService.getNewsService(this).baseParams();
 		params.put(Constants.URL_PARAM_QUERY, keyword);
-		params.put(Constants.URL_PARAM_PAGE, Integer.valueOf(currentPage + 1));
+		params.put(Constants.URL_PARAM_PAGE, Integer.valueOf(currentPage).toString());
 
-		NewsService.getNewsService().startSearch(keyword, params);
+		NewsService.getNewsService(this).startSearch(params);
+
 	}
 
 }

@@ -24,6 +24,7 @@ public class Constants {
 	public final static int CONNECTION_TIMEOUT = 30000; //miliseconds
 
 	public final static int DEFAULT_CURRENT_PAGE = 0;
+	public final static String RESPONE_OK = "ok";
 
 
 

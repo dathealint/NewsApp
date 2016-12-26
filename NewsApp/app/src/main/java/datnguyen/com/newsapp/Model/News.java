@@ -1,12 +1,13 @@
 package datnguyen.com.newsapp.Model;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  * Created by datnguyen on 12/26/16.
  */
 
-public class News {
+public class News implements Serializable {
 
 	private String newsId = null;
 	private String title = null;

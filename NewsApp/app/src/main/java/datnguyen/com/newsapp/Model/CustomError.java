@@ -9,7 +9,8 @@ public class CustomError {
 	public final static int ERROR_EXCEPTION_PARSE = 1;
 	public final static int ERROR_SERVER_MESSAGE = 2;
 	public final static int ERROR_NETWORK_ERROR = 3;
-	public final static int ERROR_RESPONSE_NOT_OK = 4;
+	public final static int ERROR_CANCELLED = 4;
+	public final static int ERROR_RESPONSE_NOT_OK = 5;
 
 	private int errorId;
 	private String errorMessage;
