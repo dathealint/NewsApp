@@ -3,4 +3,7 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="book_row_image_margin">10dp</dimen>
+
+    <dimen name="row_title_size">15sp</dimen>
+    <dimen name="row_section_size">13sp</dimen>
 </resources>

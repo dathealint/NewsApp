@@ -102,10 +102,14 @@ public final class NewsService implements LoaderManager.LoaderCallbacks {
 		this.mContext = context;
 	}
 
+	/**
+	 * Send search request to server
+	 * @param searchParams
+	 */
 	public void startSearch(HashMap searchParams) {
 		LoaderManager loaderManager = ((Activity) this.mContext).getLoaderManager();
 
-		// check if there's another request already loading
+		// check if there's another request already loading, stop that, because always set newest request as highest repository
 		NewsLoader loader = (NewsLoader)loaderManager.getLoader(TYPE_SEARCH);
 		if (loader != null) {
 			loaderManager.destroyLoader(TYPE_SEARCH);

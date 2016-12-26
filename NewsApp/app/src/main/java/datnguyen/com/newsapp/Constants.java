@@ -26,6 +26,4 @@ public class Constants {
 	public final static int DEFAULT_CURRENT_PAGE = 0;
 	public final static String RESPONE_OK = "ok";
 
-
-
 }

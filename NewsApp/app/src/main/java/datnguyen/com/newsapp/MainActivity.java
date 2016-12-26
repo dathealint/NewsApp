@@ -137,6 +137,9 @@ public class MainActivity extends AppCompatActivity {
 		NewsService.getNewsService(this).setServiceListener(newsServiceListener);
 	}
 
+	/**
+	 * update UI when finish searching request
+	 */
 	private void handleSearchCompleted() {
 		// check network status, show error message if network unavailable
 		if (!NetworkService.getNetworkService(this).isNetworkAvailable()) {
