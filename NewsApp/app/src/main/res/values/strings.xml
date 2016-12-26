@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">NewsApp</string>
+    <string name="search_hint">Enter some text to search stories...</string>
+
+    <string name="text_error_fetching">Error occurs while fetching stories. Please try again later!</string>
+    <string name="text_network_error">Network is unavailable. Check your connection and try again later!</string>
+    <string name="text_server_error">There\'s problem with server! Try again later!</string>
+    <string name="text_no_result">No matching stories found! Try another keyword!</string>
+</resources>
